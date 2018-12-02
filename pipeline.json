@@ -1,0 +1,20 @@
+{
+  "pipeline": [
+    {
+      "type": "readers.faux",
+      "count":"10000",
+      "mode":"random"
+    },
+    {
+      "type": "filters.arbiter_example",
+      "file": "s3://foo/bar.txt"
+    },
+    {
+      "type": "filters.arbiter_example",
+      "file": "/tmp/foo/bar.txt"
+    },
+    {
+      "type": "writers.null"
+    }
+  ]
+}

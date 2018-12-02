@@ -9,10 +9,10 @@ namespace pdal
    public:
       std::string getName() const override;
 
-   private:
       void addArgs(ProgramArgs&) override;
-      void ready(PointTableRef) override;
       PointViewSet run(PointViewPtr) override;
-      void done(PointTableRef) override;
+
+      std::string file;
+      std::string cache;
    };
 }
