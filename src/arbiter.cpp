@@ -7585,7 +7585,7 @@ S3::Resource::Resource(std::string base, std::string fullPath)
     : m_baseUrl(base)
     , m_bucket()
     , m_object()
-    , m_virtualHosted(true)
+    , m_virtualHosted(false)
 {
     fullPath = sanitize(fullPath);
     const std::size_t split(fullPath.find("/"));
@@ -7619,7 +7619,7 @@ std::string S3::Resource::url() const
     }
     else
     {
-        return "https://" + m_baseUrl + m_bucket + "/" + m_object;
+        return "http://" + m_baseUrl + m_bucket + "/" + m_object;
     }
 }
 
