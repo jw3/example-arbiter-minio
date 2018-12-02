@@ -15,7 +15,8 @@ class arbiter_example(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     url = "https://someurl.here"
     generators = "cmake"
-    requires = "gtest/1.8.0@bincrafters/stable"
+    requires = "jsoncpp/1.0.0@theirix/stable", \
+               "range-v3/0.4.0@ericniebler/stable"
 
     def package(self):
         self.copy("*.so", src="src", dst="lib")

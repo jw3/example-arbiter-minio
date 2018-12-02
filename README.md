@@ -1,4 +1,8 @@
-arbiter_example
+example use of arbiter in a pdal filter
 ===
 
-A PDAL filter plugin
+just hackin around, _arbiter ⇒ minio_
+
+### see
+- https://github.com/connormanning/arbiter
+- https://www.minio.io/
