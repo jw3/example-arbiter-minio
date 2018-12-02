@@ -1,0 +1,31 @@
+#pragma once
+
+#include <string>
+
+#define PDAL_MAJOR_VERSION ${PDAL_VERSION_MAJOR}
+#define PDAL_MINOR_VERSION ${PDAL_VERSION_MINOR}
+
+namespace BuildInfo
+{
+
+const std::string PluginVersion = "${FULL_VERSION_STRING}";
+
+const std::string PluginMajorVersion = "${VERSION_MAJOR}";
+
+const std::string PluginMinorVersion = "${VERSION_MINOR}";
+
+const std::string PluginPatchVersion = "${VERSION_PATCH}";
+
+const std::string PluginName = "${CMAKE_PROJECT_NAME}";
+
+const std::string PluginDescription = " v${FULL_VERSION_STRING} [${GIT_COMMIT_SHORT_ID}]";
+
+const std::string PluginURL = "http://link/to/documentation";
+
+const std::string PDALStageName = "filters.${CMAKE_PROJECT_NAME}";
+
+const std::string GitCommitId = "${GIT_COMMIT_ID}";
+
+const std::string GitShortCommitId = "${GIT_COMMIT_SHORT_ID}";
+
+}
