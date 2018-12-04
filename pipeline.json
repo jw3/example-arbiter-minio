@@ -7,7 +7,19 @@
     },
     {
       "type": "filters.arbiter_example",
-      "file": "s3://foo/bar.txt"
+      "file": "s3://foo/bar.txt",
+      "arbiter": {
+        "s3": {
+          "endpoint": "localhost:9000",
+          "access": "defaultkey",
+          "secret": "defaultkey"
+        }
+      }
+    },
+    {
+      "type": "filters.arbiter_example",
+      "file": "s3://foo/bar.txt",
+      "arbiter": "/this/project/path/arbiter.json"
     },
     {
       "type": "filters.arbiter_example",

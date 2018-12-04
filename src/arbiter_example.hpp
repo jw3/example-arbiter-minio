@@ -14,5 +14,6 @@ namespace pdal
 
       std::string file;
       std::string cache;
+      std::string ajson;
    };
 }

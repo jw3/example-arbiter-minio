@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 export PDAL_DRIVER_PATH=$PWD/cmake-build-debug/src:$PWD/build/src
+export ARBITER_CONFIG_FILE=$PWD/arbiter.json
+
 #export CURL_VERBOSE=1
 
 docker run -d --rm --name minio -p 9000:9000 \

@@ -23,21 +23,34 @@ namespace pdal
    void arbiter_example::addArgs(ProgramArgs& args) {
       args.add("file", "The file", file);
       args.add("cache", "The file cache", cache, "/tmp");
+      args.add("arbiter", "The arbiter config", ajson, "");
    }
 
    PointViewSet arbiter_example::run(PointViewPtr view) {
       std::cout << BuildInfo::PDALStageName << "::run" << std::endl;
 
-      // configure arbiter, this gets moved out
-      Json::Value json;
-      json["s3"]["endpoint"] = "localhost:9000";
-      json["s3"]["access"] = "defaultkey";
-      json["s3"]["secret"] = "defaultkey";
+      std::shared_ptr<arbiter::Arbiter> a;
+      if(!ajson.empty()) {
+         if(pdal::FileUtils::isAbsolutePath(ajson)){
+            std::cout << "using json file from pipeline" << std::endl;
+            ajson = pdal::FileUtils::readFileIntoString(ajson);
+         }
+         else
+            std::cout << "using json from pipeline" << std::endl;
 
-      arbiter::Arbiter a(json);
+         Json::Reader jsonReader;
+         Json::Value aconf(Json::objectValue);
+         jsonReader.parse(ajson, aconf);
+
+         a = std::make_shared<arbiter::Arbiter>(aconf);
+      }
+      else {
+         std::cout << "using config file from env" << std::endl;
+         a = std::make_shared<arbiter::Arbiter>();
+      }
 
       // get a handle to the file, which will be pulled from the source if not present
-      auto h = a.getLocalHandle(file, cache);
+      auto h = a->getLocalHandle(file, cache);
       auto p = h->localPath();
 
       // print the file contents

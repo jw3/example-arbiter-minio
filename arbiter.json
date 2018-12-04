@@ -1,0 +1,7 @@
+{
+  "s3": {
+    "endpoint": "localhost:9000",
+    "access": "defaultkey",
+    "secret": "defaultkey"
+  }
+}
