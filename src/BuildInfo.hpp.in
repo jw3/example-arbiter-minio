@@ -22,8 +22,6 @@ const std::string PluginDescription = " v${FULL_VERSION_STRING} [${GIT_COMMIT_SH
 
 const std::string PluginURL = "http://link/to/documentation";
 
-const std::string PDALStageName = "filters.${CMAKE_PROJECT_NAME}";
-
 const std::string GitCommitId = "${GIT_COMMIT_ID}";
 
 const std::string GitShortCommitId = "${GIT_COMMIT_SHORT_ID}";

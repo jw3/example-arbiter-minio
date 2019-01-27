@@ -6,14 +6,15 @@ target_compile_definitions(arbiter PRIVATE ARBITER_CURL=1)
 
 # ------------------------------
 
-add_library(${PLUGIN_IMPL} SHARED arbiter_example.hpp arbiter_example.cpp)
-target_include_directories(${PLUGIN_IMPL} PRIVATE ${CONAN_INCLUDE_DIRS} ${PDAL_INCLUDE_DIRS})
-target_link_libraries(${PLUGIN_IMPL} PRIVATE ${PDAL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} arbiter)
+set(reader_name pdal_plugin_filter_arbiter_reader)
+add_library(${reader_name} SHARED arbiter_reader.hpp arbiter_reader.cpp)
+target_include_directories(${reader_name} PRIVATE ${CONAN_INCLUDE_DIRS} ${PDAL_INCLUDE_DIRS})
+target_link_libraries(${reader_name} PRIVATE ${PDAL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} arbiter)
 
-install(TARGETS ${PLUGIN_IMPL}
+install(TARGETS ${reader_name}
         LIBRARY DESTINATION lib)
 
-set_target_properties(${PLUGIN_IMPL} PROPERTIES
+set_target_properties(${reader_name} PROPERTIES
     VERSION ${FULL_VERSION_STRING}
     SOVERSION ${VERSION_MAJOR}
     CLEAN_DIRECT_OUTPUT 1)

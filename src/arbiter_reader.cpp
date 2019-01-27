@@ -1,4 +1,4 @@
-#include "arbiter_example.hpp"
+#include "arbiter_reader.hpp"
 #include "BuildInfo.hpp"
 
 #include <arbiter.hpp>
@@ -9,25 +9,25 @@ using namespace arbiter;
 namespace pdal
 {
    static PluginInfo const s_info{
-         BuildInfo::PDALStageName,
+         "filters.arbiter_reader",
          BuildInfo::PluginDescription,
          BuildInfo::PluginURL
    };
 
-   CREATE_SHARED_STAGE(arbiter_example, s_info)
+   CREATE_SHARED_STAGE(arbiter_reader, s_info)
 
-   std::string arbiter_example::getName() const {
+   std::string arbiter_reader::getName() const {
       return s_info.name;
    }
 
-   void arbiter_example::addArgs(ProgramArgs& args) {
+   void arbiter_reader::addArgs(ProgramArgs& args) {
       args.add("file", "The file", file);
       args.add("cache", "The file cache", cache, "/tmp");
       args.add("arbiter", "The arbiter config", ajson, "");
    }
 
-   PointViewSet arbiter_example::run(PointViewPtr view) {
-      std::cout << BuildInfo::PDALStageName << "::run" << std::endl;
+   PointViewSet arbiter_reader::run(PointViewPtr view) {
+      std::cout << "filters.arbiter_reader::run" << std::endl;
 
       std::shared_ptr<arbiter::Arbiter> a;
       if(!ajson.empty()) {

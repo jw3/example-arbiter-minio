@@ -4,7 +4,7 @@
 
 namespace pdal
 {
-   class PDAL_DLL arbiter_example : public Filter
+   class PDAL_DLL arbiter_reader : public Filter
    {
    public:
       std::string getName() const override;

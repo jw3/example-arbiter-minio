@@ -28,8 +28,6 @@ set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 
 include(BuildInfo)
 
-set(PLUGIN_IMPL pdal_plugin_filter_${CMAKE_PROJECT_NAME})
-
 include_directories(src)
 add_subdirectory(src)
 

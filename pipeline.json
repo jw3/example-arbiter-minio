@@ -6,7 +6,7 @@
       "mode":"random"
     },
     {
-      "type": "filters.arbiter_example",
+      "type": "filters.arbiter_reader",
       "file": "s3://foo/bar.txt",
       "arbiter": {
         "s3": {
@@ -17,12 +17,12 @@
       }
     },
     {
-      "type": "filters.arbiter_example",
+      "type": "filters.arbiter_reader",
       "file": "s3://foo/bar.txt",
       "arbiter": "/this/project/path/arbiter.json"
     },
     {
-      "type": "filters.arbiter_example",
+      "type": "filters.arbiter_reader",
       "file": "/tmp/foo/bar.txt"
     },
     {
