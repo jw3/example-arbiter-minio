@@ -18,4 +18,6 @@ sleep 3 # let minio start
 
 pdal pipeline -i pipeline.json
 
+read -p "Done, press enter to quit"
+
 docker kill minio

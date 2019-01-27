@@ -26,6 +26,18 @@
       "file": "/tmp/foo/bar.txt"
     },
     {
+      "type": "filters.arbiter_writer",
+      "file": "s3://foo/biz/bam/boom.txt"
+    },
+    {
+      "type": "filters.arbiter_reader",
+      "file": "s3://foo/biz/bam/boom.txt"
+    },
+    {
+      "type": "filters.arbiter_writer",
+      "file": "/tmp/local-boom.txt"
+    },
+    {
       "type": "writers.null"
     }
   ]

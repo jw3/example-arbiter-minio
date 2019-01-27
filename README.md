@@ -3,6 +3,8 @@ example use of arbiter in a pdal filter
 
 just hackin around, _arbiter ⇒ minio_
 
+To test just do a `./run.sh`
+
 ### arbiter
 
 - Amalgamation [1fcc7db0](https://github.com/connormanning/arbiter/tree/1fcc7db0d6967ef68ff3a2517da8f685168f7527)
